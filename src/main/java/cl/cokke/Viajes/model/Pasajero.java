@@ -14,7 +14,6 @@ import javax.persistence.*;
 public class Pasajero {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long rut;
     private String nombre;
     private String apellidoPat;

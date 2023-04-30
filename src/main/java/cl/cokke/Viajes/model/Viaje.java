@@ -4,21 +4,23 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "viajes")
 public class Viaje {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cod_viaje;
-    private String rut;
-    private Long cod_destino;
+    @ManyToOne
+    @JoinColumn(name = "rut" , referencedColumnName = "rut")
+    private Pasajero rut;
+    @ManyToOne
+    @JoinColumn(name = "cod_destino" , referencedColumnName = "cod_destino")
+    private Destino destino;
 
 }

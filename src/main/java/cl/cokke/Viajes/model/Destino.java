@@ -10,10 +10,10 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="destinos")
+@Table(name = "destinos")
 public class Destino {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cod_destino;
-    private String desc;
+    private String descripcion;
 }
