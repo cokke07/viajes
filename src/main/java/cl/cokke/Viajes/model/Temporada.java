@@ -17,7 +17,7 @@ public class Temporada {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String cod_temporada;
+    private Long cod_temporada;
     private String nombre;
     private Long cod_destino;
 }

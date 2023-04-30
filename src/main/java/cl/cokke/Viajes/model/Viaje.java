@@ -19,6 +19,6 @@ public class Viaje {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cod_viaje;
     private String rut;
-    private String cod_destino;
+    private Long cod_destino;
 
 }

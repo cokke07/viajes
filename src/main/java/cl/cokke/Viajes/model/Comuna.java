@@ -17,7 +17,7 @@ public class Comuna {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String cod_comuna;
+    private Long cod_comuna;
     private String nombre;
 
 }
