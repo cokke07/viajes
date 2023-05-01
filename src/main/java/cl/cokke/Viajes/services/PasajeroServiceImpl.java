@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -33,7 +35,19 @@ public class PasajeroServiceImpl implements PasajeroService{
 
     @Override
     public Pasajero buscarPasajeroPorRut(Long rut) {
-        return null;
+
+        Optional<Pasajero> pasajeroBuscado = pasajeroRepository.findById(rut);
+        try{
+            if(pasajeroBuscado.isPresent()){
+                return pasajeroBuscado.get();
+            }else{
+                throw new EntityNotFoundException("No se encontro el pasajero Rut: " + rut);
+            }
+        }catch(Exception e){
+            log.error("Se produjo un error en el la busqueda: {}", e.getMessage());
+            throw new RuntimeException("Ha ocurrido un error al procesar los datos", e);
+        }
+
     }
 
     @Override

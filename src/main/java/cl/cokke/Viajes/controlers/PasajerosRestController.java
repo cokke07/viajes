@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -24,12 +22,13 @@ public class PasajerosRestController {
     ViajeRepository repoViajes;
     @GetMapping("/pasajeros")
     public ResponseEntity<?> listarPasajeros(){
-        log.info("Ingresando en el controler de pasajeros");
+        log.info("Ingresando en el controler de listado de pasajeros");
         return new ResponseEntity<>(repo.listarPasajeros(), HttpStatus.OK);
     }
 
-    @GetMapping("/viajes")
-    public ResponseEntity<?> listarViajes(){
-        return new ResponseEntity<>(repoViajes.findAll(), HttpStatus.OK);
+    @GetMapping("/pasajeros/{rut}")
+    public ResponseEntity<?> busquedaPasajerosPorRut(@PathVariable Long rut){
+        log.info("Ingresando en el controler de pasajeros por rut buscado");
+        return new ResponseEntity<>(repo.buscarPasajeroPorRut(rut), HttpStatus.OK);
     }
 }
