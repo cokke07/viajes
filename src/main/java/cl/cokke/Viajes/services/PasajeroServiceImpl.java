@@ -41,7 +41,7 @@ public class PasajeroServiceImpl implements PasajeroService{
             if(pasajeroBuscado.isPresent()){
                 return pasajeroBuscado.get();
             }else{
-                throw new EntityNotFoundException("No se encontro el pasajero Rut: " + rut);
+                throw new EntityNotFoundException("No se encontro el pasajero con Rut: " + rut);
             }
         }catch(Exception e){
             log.error("Se produjo un error en el la busqueda: {}", e.getMessage());

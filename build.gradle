@@ -27,6 +27,11 @@ dependencies {
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation group: 'org.codehaus.groovy', name: 'groovy-all', version: '3.0.13', ext: 'pom'
+	implementation group: 'org.apache.groovy', name: 'groovy-test', version: '4.0.1'
+
+	testImplementation group: 'org.spockframework', name: 'spock-core', version: '2.4-M1-groovy-4.0'
 }
 
 tasks.named('test') {
